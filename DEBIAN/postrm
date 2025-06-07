@@ -1,0 +1,5 @@
+#!/bin/sh
+set -e
+systemctl disable blink-reminder.service
+systemctl daemon-reload
+rm -f /lib/systemd/system/blink-reminder.service

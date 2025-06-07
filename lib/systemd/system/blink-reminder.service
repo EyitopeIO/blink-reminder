@@ -1,0 +1,11 @@
+[Unit]
+Description=Blink Reminder Service
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/blink_reminder.py
+Restart=always
+User=root
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,6 @@
+#!/bin/sh
+set -e
+chmod +x /usr/bin/blink_reminder.py
+systemctl daemon-reload
+systemctl enable blink-reminder.service
+

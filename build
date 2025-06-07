@@ -1,0 +1,4 @@
+#!/bin/sh
+mkdir build-deb
+cp -r DEBIAN/ usr/ lib/ build-deb/
+dpkg -b build-deb blink-reminder_1.0.deb

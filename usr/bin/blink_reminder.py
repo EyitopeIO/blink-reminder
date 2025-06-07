@@ -18,7 +18,7 @@ class BlinkReminder(QMainWindow):
 
         self.show_timer = QTimer(self)
         self.show_timer.timeout.connect(self.show_window)
-        self.show_timer.start(20 * 60 * 1000)  # Every 20 minutes
+        self.show_timer.start(300000)  # Every 5 minutes (300,000 ms)
 
         self.hide_timer = QTimer(self)
         self.hide_timer.timeout.connect(self.close)
@@ -29,5 +29,5 @@ class BlinkReminder(QMainWindow):
 
 app = QApplication(sys.argv)
 window = BlinkReminder()
-window.show_window()  # Show immediately on start
-sys.exit(app.exec_())
+window.show_window()
+app.exec_()  # Keep the application running

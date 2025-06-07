@@ -1,0 +1,8 @@
+Package: blink-reminder
+Version: 1.0
+Section: utils
+Priority: optional
+Architecture: all
+Depends: python3, python3-pyqt5, systemd
+Maintainer: EyitopeIO
+Description: Reminds me to blink
