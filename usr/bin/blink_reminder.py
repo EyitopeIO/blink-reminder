@@ -10,11 +10,13 @@ class BlinkReminder(QMainWindow):
         self.setWindowFlags(Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint)
         self.setAttribute(Qt.WA_TranslucentBackground)
         self.setFixedSize(300, 200)
+        self.setWindowFlags(Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint | Qt.Tool)  # prevents "app is ready" message)
 
         pixmap = QPixmap("/usr/share/blink-reminder/blink_reminder.png").scaled(300, 200, Qt.KeepAspectRatio, Qt.SmoothTransformation)
         self.label = QLabel(self)
         self.label.setPixmap(pixmap)
         self.label.resize(pixmap.size())
+        self.label.setStyleSheet("background-color: white;")  # Set white background
 
         self.show_timer = QTimer(self)
         self.show_timer.timeout.connect(self.show_window)
