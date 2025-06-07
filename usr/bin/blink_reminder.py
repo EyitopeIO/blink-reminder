@@ -11,23 +11,23 @@ class BlinkReminder(QMainWindow):
         self.setGeometry(100, 100, 300, 200)  # Fixed window size
 
         # Load and resize the image to fit the window
-        pixmap = QPixmap("blink_reminder.png").scaled(300, 200, Qt.KeepAspectRatio, Qt.SmoothTransformation)
+        pixmap = QPixmap("/usr/share/blink-reminder/blink_reminder.png").scaled(300, 200, Qt.KeepAspectRatio, Qt.SmoothTransformation)
         self.label = QLabel(self)
         self.label.setPixmap(pixmap)
         self.label.resize(pixmap.size())
 
         self.show_timer = QTimer(self)
         self.show_timer.timeout.connect(self.show_window)
-        self.show_timer.start(300000)  # Every 5 minutes (300,000 ms)
+        self.show_timer.start(300000)  # 5mins
 
         self.hide_timer = QTimer(self)
-        self.hide_timer.timeout.connect(self.close)
+        self.hide_timer.timeout.connect(self.hide)
 
     def show_window(self):
         self.show()
-        self.hide_timer.start(3000)  # Hide after 3 seconds
+        self.hide_timer.start(3000)
 
 app = QApplication(sys.argv)
 window = BlinkReminder()
 window.show_window()
-app.exec_()  # Keep the application running
+app.exec_()  # run forever
